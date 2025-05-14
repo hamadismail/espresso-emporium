@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: Rancho;
+  src: url("./assets/fonts/Rancho-Regular.ttf");
+}
+
+/* @theme {
+  --font-rancho: "Rancho", "sans-serif";
+} */
+
+* {
+  font-family: "Rancho", "sans-serif";
+}
