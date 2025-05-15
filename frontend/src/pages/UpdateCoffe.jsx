@@ -3,7 +3,7 @@ import bgImg from "../assets/images/more/11.png";
 import { IoMdArrowBack } from "react-icons/io";
 import { useNavigate } from "react-router";
 
-const AddCoffe = () => {
+const UpdateCoffe = () => {
   const navigate = useNavigate();
   return (
     <div style={{ backgroundImage: `url(${bgImg})` }}>
@@ -19,7 +19,7 @@ const AddCoffe = () => {
         {/* contact form */}
         <div className="bg-[#F4F3F0] mt-8 px-12 py-8">
           <h2 className="text-center text-2xl text-[#374151] font-semibold">
-            Add New Coffee
+            Update Existing Coffee Details
           </h2>
           <p className="text-center text-[#1b1a1ab3] my-4 md:w-3/4 mx-auto font-thin">
             It is a long established fact that a reader will be distraceted by
@@ -99,7 +99,7 @@ const AddCoffe = () => {
               </div>
             </div>
             <button className="text-[#331A15] bg-[#D2B48C] border w-full mt-4 p-1 font-medium rounded cursor-pointer">
-              Add Coffee
+              Update Coffee Details
             </button>
           </form>
         </div>
@@ -108,4 +108,4 @@ const AddCoffe = () => {
   );
 };
 
-export default AddCoffe;
+export default UpdateCoffe;
