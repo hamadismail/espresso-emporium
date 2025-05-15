@@ -2,10 +2,12 @@ import React from "react";
 import { BsFillCupHotFill } from "react-icons/bs";
 import bgImg from "../../assets/images/more/1.png";
 import Product from "./Product";
+import { useNavigate } from "react-router";
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8];
 
 const Products = () => {
+  const navigate = useNavigate();
   return (
     <div
       className="bg-white bg-no-repeat bg-contain"
@@ -18,7 +20,10 @@ const Products = () => {
         <h2 className="text-center my-3 text-3xl font-semibold text-shadow-xs text-shadow-[#331A15] text-[#331A15]">
           Our Popular Products
         </h2>
-        <div className="flex gap-1 items-center cursor-pointer bg-[#E3B577] border border-[#331A15] w-fit mx-auto px-2 py-1 rounded">
+        <div
+          onClick={() => navigate("/addcoffe")}
+          className="flex gap-1 items-center cursor-pointer bg-[#E3B577] border border-[#331A15] w-fit mx-auto px-2 py-1 rounded"
+        >
           <button className="text-white cursor-pointer text-shadow-xs text-shadow-gray-500">
             Add Coffee
           </button>
