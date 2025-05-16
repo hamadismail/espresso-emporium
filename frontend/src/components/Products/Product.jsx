@@ -30,7 +30,9 @@ const Product = ({ coffe }) => {
 
         <div className="space-y-2">
           <div
-            onClick={() => navigate(`/coffe/5`)}
+            onClick={() => {
+              navigate(`/coffe/${_id}`), window.scrollTo(0, 0);
+            }}
             className="bg-[#D2B48C] cursor-pointer p-2 text-white rounded"
           >
             <FaEye />
