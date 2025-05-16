@@ -22,7 +22,9 @@ const Products = () => {
           Our Popular Products
         </h2>
         <div
-          onClick={() => navigate("/addcoffe")}
+          onClick={() => {
+            navigate("/addcoffe"), window.scrollTo(0, 0);
+          }}
           className="flex gap-1 items-center cursor-pointer bg-[#E3B577] border border-[#331A15] w-fit mx-auto px-2 py-1 rounded"
         >
           <button className="text-white cursor-pointer text-shadow-xs text-shadow-gray-500">

@@ -69,7 +69,9 @@ const Product = ({ coffe, coffes, setCoffes }) => {
             <FaEye />
           </div>
           <div
-            onClick={() => navigate("/updatecoffe")}
+            onClick={() => {
+              navigate(`/updatecoffe/${_id}`), window.scrollTo(0, 0);
+            }}
             className="bg-[#3C393B] cursor-pointer p-2 text-white rounded"
           >
             <MdEdit />
