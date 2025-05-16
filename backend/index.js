@@ -23,6 +23,25 @@ async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
+
+    const coffeCollection = client.db("coffeDB").collection("coffes");
+
+    // find all coffes from database to server
+    app.get("/coffes", async (req, res) => {
+      const result = await coffeCollection.find().toArray();
+      res.send(result);
+    });
+
+    // add cofee to database from the server
+    app.post("/coffes", async (req, res) => {
+      const newCoffe = req.body;
+      const result = await coffeCollection.insertOne(newCoffe);
+      res.send(result);
+    });
+
+    // delete coffe from the database
+    app.delete("/coffes/:id", async (req, res) => {});
+
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log(
@@ -30,7 +49,7 @@ async function run() {
     );
   } finally {
     // Ensures that the client will close when you finish/error
-    await client.close();
+    // await client.close();
   }
 }
 run().catch(console.dir);

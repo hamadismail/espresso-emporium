@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsFillCupHotFill } from "react-icons/bs";
 import bgImg from "../../assets/images/more/1.png";
 import Product from "./Product";
-import { useNavigate } from "react-router";
-
-const cards = [1, 2, 3, 4, 5, 6, 7, 8];
+import { useLoaderData, useNavigate } from "react-router";
 
 const Products = () => {
   const navigate = useNavigate();
+  const existingCoffes = useLoaderData();
+  const [coffes, setCoffes] = useState(existingCoffes);
+
   return (
     <div
       className="bg-white bg-no-repeat bg-contain"
@@ -32,8 +33,8 @@ const Products = () => {
 
         {/* products card container*/}
         <div className="mt-8 grid md:grid-cols-2 gap-4">
-          {cards.map((card) => (
-            <Product />
+          {coffes.map((coffe) => (
+            <Product key={coffe._id} coffe={coffe} />
           ))}
         </div>
       </div>

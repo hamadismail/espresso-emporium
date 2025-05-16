@@ -2,9 +2,38 @@ import React from "react";
 import bgImg from "../assets/images/more/11.png";
 import { IoMdArrowBack } from "react-icons/io";
 import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 const AddCoffe = () => {
   const navigate = useNavigate();
+
+  const handleAddCoffe = (e) => {
+    e.preventDefault();
+    const form = e.target;
+
+    const formData = new FormData(form);
+    const newCoffe = Object.fromEntries(formData.entries());
+
+    fetch("http://localhost:3000/coffes", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newCoffe),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Coffee added successfully!",
+            icon: "success",
+            draggable: true,
+          });
+
+          form.reset();
+        }
+      });
+  };
   return (
     <div style={{ backgroundImage: `url(${bgImg})` }}>
       <div className="w-11/12 md:w-10/12 mx-auto py-8">
@@ -29,7 +58,7 @@ const AddCoffe = () => {
           </p>
 
           {/* form */}
-          <form>
+          <form onSubmit={handleAddCoffe}>
             <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <label className="text-[#1b1a1acc] text-lg">Name</label> <br />
