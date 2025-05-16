@@ -34,7 +34,12 @@ const Products = () => {
         {/* products card container*/}
         <div className="mt-8 grid md:grid-cols-2 gap-4">
           {coffes.map((coffe) => (
-            <Product key={coffe._id} coffe={coffe} />
+            <Product
+              key={coffe._id}
+              coffe={coffe}
+              coffes={coffes}
+              setCoffes={setCoffes}
+            />
           ))}
         </div>
       </div>
