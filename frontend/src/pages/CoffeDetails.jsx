@@ -2,6 +2,7 @@ import React from "react";
 import bgImg from "../assets/images/more/11.png";
 import { useLoaderData, useNavigate } from "react-router";
 import { IoMdArrowBack } from "react-icons/io";
+import "../styles/image.css";
 
 const CoffeDetails = () => {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ const CoffeDetails = () => {
           Back to home
         </p>
         <div className="flex max-md:flex-col justify-center gap-4 md:gap-12  py-12 items-center bg-[#F4F3F0] mt-4">
-          <img src={photo} />
+          <img className="product-img rounded" width="300px" src={photo} />
           <div className="max-md:text-center">
             <h2 className="text-[#331A15] text-xl font-semibold mb-3">
               Niceties

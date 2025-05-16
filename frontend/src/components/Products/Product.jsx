@@ -4,6 +4,7 @@ import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import "../../styles/image.css";
 
 const Product = ({ coffe, coffes, setCoffes }) => {
   const navigate = useNavigate();
@@ -43,8 +44,8 @@ const Product = ({ coffe, coffes, setCoffes }) => {
 
   return (
     <div className="bg-[#F5F4F1] py-4">
-      <div className="flex justify-around items-center">
-        <img src={photo} />
+      <div className="flex justify-around items-center rounded">
+        <img className="product-img rounded" width="200px" src={photo} />
 
         <div>
           <p className="text-[#1B1A1A] font-semibold">
