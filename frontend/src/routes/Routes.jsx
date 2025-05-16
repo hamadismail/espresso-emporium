@@ -5,6 +5,7 @@ import AddCoffe from "../pages/AddCoffe";
 import UpdateCoffe from "../pages/UpdateCoffe";
 import CoffeDetails from "../pages/CoffeDetails";
 import Error from "../pages/Error";
+import Spinner from "../components/ui/Spinner";
 
 export const router = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         loader: () => fetch("http://localhost:3000/coffes"),
+        hydrateFallbackElement: <Spinner />,
         Component: Home,
       },
       {
@@ -25,12 +27,14 @@ export const router = createBrowserRouter([
         path: "updatecoffe/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/coffes/${params.id}`),
+        hydrateFallbackElement: <Spinner />,
         Component: UpdateCoffe,
       },
       {
         path: "coffe/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/coffes/${params.id}`),
+        hydrateFallbackElement: <Spinner />,
         Component: CoffeDetails,
       },
     ],
