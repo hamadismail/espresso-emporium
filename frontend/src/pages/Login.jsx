@@ -22,7 +22,7 @@ const Login = () => {
         };
 
         // update last signin info in database
-        fetch("http://localhost:3000/users", {
+        fetch("https://coffe-shop-server-ebon.vercel.app/users", {
           method: "PATCH",
           headers: {
             "content-type": "application/json",

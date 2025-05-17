@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch("http://localhost:3000/coffes"),
+        loader: () => fetch("https://coffe-shop-server-ebon.vercel.app/coffes"),
         hydrateFallbackElement: <Spinner />,
         Component: Home,
       },
@@ -28,14 +28,18 @@ export const router = createBrowserRouter([
       {
         path: "updatecoffe/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/coffes/${params.id}`),
+          fetch(
+            `https://coffe-shop-server-ebon.vercel.app/coffes/${params.id}`
+          ),
         hydrateFallbackElement: <Spinner />,
         Component: UpdateCoffe,
       },
       {
         path: "coffe/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/coffes/${params.id}`),
+          fetch(
+            `https://coffe-shop-server-ebon.vercel.app/coffes/${params.id}`
+          ),
         hydrateFallbackElement: <Spinner />,
         Component: CoffeDetails,
       },
