@@ -1,6 +1,6 @@
 # ☕ Espresso Emporium
 
-**Espresso Emporium** is a full-stack coffee store web application where users can add, update, delete, and view coffee details. It features secure user authentication and a clean, responsive UI to provide a seamless experience for both admins and users.
+**Espresso Emporium** is a full-stack coffee store web application where users can add, update, delete, and view coffee details. It features secure user authentication and a clean, responsive UI to provide a seamless experience for users.
 
 ---
 
@@ -35,8 +35,8 @@
 ---
 
 ## 📸 Screenshots
+![Espresso Emporium](https://github.com/user-attachments/assets/0c9ee42b-31f0-4069-9770-cd80a97e3af1)
 
-![Espresso Emporium](./Espresso%20Emporium.png)
 
 ---
 
