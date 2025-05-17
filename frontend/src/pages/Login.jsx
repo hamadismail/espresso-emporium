@@ -1,13 +1,40 @@
-import React from "react";
+import React, { use } from "react";
 import bgImg from "../assets/images/more/11.png";
 import { IoMdArrowBack } from "react-icons/io";
 import { Link, useNavigate } from "react-router";
+import { AuthContext } from "../providers/AuthContext";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { userSignIn } = use(AuthContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    userSignIn(email, password)
+      .then((result) => {
+        const signinInfo = {
+          email,
+          lastSignInTime: result.user?.metadata?.lastSignInTime,
+        };
+
+        // update last signin info in database
+        fetch("http://localhost:3000/users", {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(signinInfo),
+        })
+          .then((res) => res.json())
+          .then((data) => {});
+      })
+      .catch((error) => {
+        alert(error.code);
+      });
   };
 
   return (

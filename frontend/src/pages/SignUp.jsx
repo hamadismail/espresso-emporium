@@ -3,6 +3,7 @@ import bgImg from "../assets/images/more/11.png";
 import { IoMdArrowBack } from "react-icons/io";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../providers/AuthContext";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -27,7 +28,25 @@ const SignUp = () => {
           creationTime: result.user?.metadata?.creationTime,
           lastSignInTime: result.user?.metadata?.lastSignInTime,
         };
-        // ...
+        fetch("http://localhost:3000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userProfile),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              Swal.fire({
+                position: "top",
+                icon: "success",
+                title: "Your account is created.",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }
+          });
       })
       .catch((error) => {
         alert(error.code);
