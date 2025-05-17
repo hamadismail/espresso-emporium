@@ -6,6 +6,8 @@ import UpdateCoffe from "../pages/UpdateCoffe";
 import CoffeDetails from "../pages/CoffeDetails";
 import Error from "../pages/Error";
 import Spinner from "../components/ui/Spinner";
+import Login from "../pages/Login";
+import SignUp from "../pages/SignUp";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +38,14 @@ export const router = createBrowserRouter([
           fetch(`http://localhost:3000/coffes/${params.id}`),
         hydrateFallbackElement: <Spinner />,
         Component: CoffeDetails,
+      },
+      {
+        path: "auth/login",
+        Component: Login,
+      },
+      {
+        path: "auth/signup",
+        Component: SignUp,
       },
     ],
   },
