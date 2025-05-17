@@ -1,13 +1,37 @@
-import React from "react";
+import React, { use } from "react";
 import bgImg from "../assets/images/more/11.png";
 import { IoMdArrowBack } from "react-icons/io";
 import { Link, useNavigate } from "react-router";
+import { AuthContext } from "../providers/AuthContext";
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const { userSignUp } = use(AuthContext);
 
   const handleSignUp = (e) => {
     e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const { email, password, ...restFormData } = Object.fromEntries(
+      formData.entries()
+    );
+
+    // const email = formData.get("email");
+
+    userSignUp(email, password)
+      .then((result) => {
+        // Signed up
+        const userProfile = {
+          email,
+          ...restFormData,
+          creationTime: result.user?.metadata?.creationTime,
+          lastSignInTime: result.user?.metadata?.lastSignInTime,
+        };
+        // ...
+      })
+      .catch((error) => {
+        alert(error.code);
+      });
   };
 
   return (
