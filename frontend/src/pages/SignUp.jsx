@@ -24,7 +24,7 @@ const SignUp = () => {
         {/* contact form */}
         <div className="bg-[#F4F3F0] mt-8 px-12 py-8">
           <h2 className="text-center text-2xl text-[#374151] font-semibold">
-            Login as existing user
+            New to here? SignUp
           </h2>
           <p className="text-center text-[#1b1a1ab3] my-4 md:w-3/4 mx-auto font-thin">
             It is a long established fact that a reader will be distraceted by
