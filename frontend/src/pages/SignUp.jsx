@@ -7,11 +7,12 @@ import Swal from "sweetalert2";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const { userSignUp } = use(AuthContext);
+  const { userSignUp, setUser } = use(AuthContext);
 
   const handleSignUp = (e) => {
     e.preventDefault();
     const form = e.target;
+    const photo = form.photo.value;
     const formData = new FormData(form);
     const { email, password, ...restFormData } = Object.fromEntries(
       formData.entries()
@@ -47,6 +48,9 @@ const SignUp = () => {
               });
             }
           });
+
+        setUser({ ...result.user, photoURL: photo });
+        navigate("/");
       })
       .catch((error) => {
         alert(error.code);

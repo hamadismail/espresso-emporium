@@ -35,12 +35,18 @@ const Header = () => {
 
         <div>
           {user ? (
-            <button
-              onClick={handleLogout}
-              className="px-2 py-1 bg-[#D2B48C] text-[#331A15] cursor-pointer"
-            >
-              Logout
-            </button>
+            <div className="flex items-center gap-2">
+              <img
+                className="h-8 w-8 rounded-full object-cover border-2 border-[#D2B48C]"
+                src={user.photoURL}
+              />
+              <button
+                onClick={handleLogout}
+                className="px-2 py-1 bg-[#D2B48C] text-[#331A15] cursor-pointer"
+              >
+                Logout
+              </button>
+            </div>
           ) : (
             <button
               onClick={() => navigate("/auth/login")}
